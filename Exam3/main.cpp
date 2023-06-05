@@ -409,15 +409,12 @@ void programL()
 
         case 2:
         {
-            if (rationalList.empty())
+            if (rationalList.empty()) // if list is empty, display output and than break
             {
                 cout << "\n\tList is empty. Please add an element first.";
                 system("pause");
                 break;
             }
-
-            cout << "\n\tCurrent list:";
-            printListContents(rationalList);
 
             int numerator = inputInteger("\n\tEnter a numerator   (-9...9): ", -9, 9);
             int denominator = inputInteger("\n\tEnter a denominator (-9...9): ", -9, 9);
@@ -436,15 +433,48 @@ void programL()
                 rationalList.insert(it, rational);
                 cout << "\n\tRational number inserted.";
             }
+
             catch (const Rational::ZeroDenominator& out)
             {
                 cout << "\n\tInvalid rational number";
             }
+
             system("pause");
             break;
         }
 
-        case 3: break;
+        case 3: //remove an element or all
+        {
+            if (rationalList.empty())
+            {
+                cout << "\n\tList is empty. There are no elements to remove.";
+                system("pause");
+                break;
+            }
+
+            int size = rationalList.size();
+            int choice = inputInteger("\n\tSelect removal option:\n\t1. Remove a single element\n\t2. Remove all elements\n\tOption: ", 1, 2);
+
+            if (choice == 1)
+            {
+                int index = inputInteger("\n\tEnter the index of the element you want to remove (Starting from 0): ", 0, size - 1);
+                rationalList.erase(rationalList.begin());
+                cout << "\n\tElement at index " << index << " removed.";
+            }
+            else if (choice == 2)
+            {
+                rationalList.clear();
+                cout << "\n\tAll elements removed.";
+            }
+            else
+            {
+                cout << "\n\tInvalid option.";
+            }
+
+            system("pause");
+            break;
+        }
+        }
         case 4: //sorting the list
             rationalList.sort();
             break;
@@ -463,7 +493,7 @@ void programL()
         break;
 
 
-        }
+        
         }
     }while (true);
 }
@@ -524,7 +554,7 @@ void programV()
         {
 
         case 0: return;
-        case 1: 
+        case 1: //add an element tot he back
         {
             int numerator = inputInteger("\n\tEnter a numerator   (-9...9): ", -9, 9);
             int denominator = inputInteger("\n\tEnter a denominator (-9...9): ", -9, 9);
@@ -543,7 +573,7 @@ void programV()
             break;
         }
         break;
-        case 2: 
+        case 2: //insert an element into a certain spot
         {
             if (rationalVector.empty())
             {
@@ -573,7 +603,7 @@ void programV()
         }
         break;
 
-        case 3: 
+        case 3: //retrieve an element in a specific index
         {
             if (rationalVector.empty())
             {
@@ -581,9 +611,6 @@ void programV()
                 system("pause");
                 break;
             }
-
-            cout << "\n\tCurrent vector:";
-            printVectorContents(rationalVector);
 
             int size = rationalVector.size();
             int index = inputInteger("\n\tEnter the index of the element you want to access  ", 0, size - 1);
@@ -594,7 +621,7 @@ void programV()
             break;
         }
 
-        case 4: 
+        case 4: //remove at a certain location
         {
             if (rationalVector.empty())
             {
