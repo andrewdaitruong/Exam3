@@ -13,6 +13,8 @@
 #include <queue>
 #include <stack>
 #include <list>
+#include <io.h>
+#include <fcntl.h>
 
 using namespace std;
 
@@ -52,6 +54,19 @@ char menuOption()
 {
     system("cls"); //clears screen
 
+
+//    cout << "                                                             ║ in/out ║            ║   in   ║";
+//    cout << "                                                             ║ ┌────┐ ║            ║ ┌────┐ ║";
+//    cout << "                                                         top»║ │ 1/2│ ║       rear»║ │ 5/6│ ║";
+//    cout << "                                                             ║ ├────┤ ║            ║ ├────┤ ║";
+//    cout << "    ┌────┬────┬────┐         ┌────┐ ┌────┐ ┌────┐            ║ │ 3/4│ ║            ║ │ 3/4│ ║";
+//    cout << "    │ 1/2│ 3/4│ 5/6│       ┌»│ 1/2│»│ 3/4│»│ 5/6│            ║ ├────┤ ║            ║ ├────┤ ║";
+//    cout << "    └────┴────┴────┘       │ └────┘ └────┘ └────┘            ║ │ 5/6│ ║      front»║ │ 1/2│ ║";
+//    cout << "    0    1    2            head                              ║ └────┘ ║            ║ └────┘ ║";
+//    cout << "    (index)                (pointer)                         ╚════════╝            ║  out   ║";
+//    cout << "\n";
+//    cout << "    Vector(list array)         Linked List                      Stack                Queue";
+    
     cout << "\n\tA container is a holder object that stores a collection of other objects(its elements).They";
     cout << "\n\tare implemented as class templates, which allows great flexibility in the types supported as";
     cout << "\n\telements.The container manages the storage space for its elementsand provides member functions";
